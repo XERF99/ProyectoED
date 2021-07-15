@@ -128,6 +128,7 @@ public class MainPeliculas extends javax.swing.JFrame {
             }
         });
 
+        txaCuadro1.setEditable(false);
         txaCuadro1.setColumns(20);
         txaCuadro1.setRows(5);
         jScrollPane1.setViewportView(txaCuadro1);
@@ -153,7 +154,7 @@ public class MainPeliculas extends javax.swing.JFrame {
                 {null, null, null, null, null, null}
             },
             new String [] {
-                "IP Película", "Nombre", "Año", "Calificación", "Genero", "Estado"
+                "IP Película", "Nombre", "Año", "Calificación", "Género", "Estado"
             }
         ));
         jScrollPane3.setViewportView(jTable2);
@@ -240,6 +241,7 @@ public class MainPeliculas extends javax.swing.JFrame {
 
         btnEliminar.setText("Eliminar");
 
+        txaCuadro2.setEditable(false);
         txaCuadro2.setColumns(20);
         txaCuadro2.setRows(5);
         jScrollPane5.setViewportView(txaCuadro2);
@@ -287,6 +289,7 @@ public class MainPeliculas extends javax.swing.JFrame {
 
         btnBuscar.setText("Buscar");
 
+        txaCuadro3.setEditable(false);
         txaCuadro3.setColumns(20);
         txaCuadro3.setRows(5);
         jScrollPane4.setViewportView(txaCuadro3);

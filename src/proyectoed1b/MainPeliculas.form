@@ -246,6 +246,7 @@
               <SubComponents>
                 <Component class="javax.swing.JTextArea" name="txaCuadro1">
                   <Properties>
+                    <Property name="editable" type="boolean" value="false"/>
                     <Property name="columns" type="int" value="20"/>
                     <Property name="rows" type="int" value="5"/>
                   </Properties>
@@ -275,7 +276,7 @@
                         <Column editable="true" title="Nombre" type="java.lang.Object"/>
                         <Column editable="true" title="A&#xf1;o" type="java.lang.Object"/>
                         <Column editable="true" title="Calificaci&#xf3;n" type="java.lang.Object"/>
-                        <Column editable="true" title="Genero" type="java.lang.Object"/>
+                        <Column editable="true" title="G&#xe9;nero" type="java.lang.Object"/>
                         <Column editable="true" title="Estado" type="java.lang.Object"/>
                       </Table>
                     </Property>
@@ -370,6 +371,7 @@
               <SubComponents>
                 <Component class="javax.swing.JTextArea" name="txaCuadro2">
                   <Properties>
+                    <Property name="editable" type="boolean" value="false"/>
                     <Property name="columns" type="int" value="20"/>
                     <Property name="rows" type="int" value="5"/>
                   </Properties>
@@ -458,6 +460,7 @@
               <SubComponents>
                 <Component class="javax.swing.JTextArea" name="txaCuadro3">
                   <Properties>
+                    <Property name="editable" type="boolean" value="false"/>
                     <Property name="columns" type="int" value="20"/>
                     <Property name="rows" type="int" value="5"/>
                   </Properties>
