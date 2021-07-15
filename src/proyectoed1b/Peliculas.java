@@ -14,6 +14,10 @@ public class Peliculas {
     private String genero;
     private String estado;
 
+    public Peliculas() {
+        
+    }
+
     public Peliculas(int ip, String nombre, int año, int calificacion, String genero, String estado) {
         this.ip = ip;
         this.nombre = nombre;
