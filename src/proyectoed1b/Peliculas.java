@@ -7,10 +7,10 @@ package proyectoed1b;
  */
 public class Peliculas {
 
-    private int ip;
+    private String id;
     private String nombre;
-    private int año;
-    private int calificacion;
+    private String año;
+    private String calificacion;
     private String genero;
     private String estado;
 
@@ -18,21 +18,20 @@ public class Peliculas {
         
     }
 
-    public Peliculas(int ip, String nombre, int año, int calificacion, String genero, String estado) {
-        this.ip = ip;
+    public Peliculas(String id, String nombre, String calificacion, String genero, String estado) {
+        this.id = id;
         this.nombre = nombre;
-        this.año = año;
         this.calificacion = calificacion;
         this.genero = genero;
         this.estado = estado;
     }
 
-    public int getIp() {
-        return ip;
+    public String getId() {
+        return id;
     }
 
-    public void setIp(int ip) {
-        this.ip = ip;
+    public void setId(String id) {
+        this.id = id;
     }
 
     public String getNombre() {
@@ -43,19 +42,19 @@ public class Peliculas {
         this.nombre = nombre;
     }
 
-    public int getAño() {
+    public String getAño() {
         return año;
     }
 
-    public void setAño(int año) {
+    public void setAño(String año) {
         this.año = año;
     }
 
-    public int getCalificacion() {
+    public String getCalificacion() {
         return calificacion;
     }
 
-    public void setCalificacion(int calificacion) {
+    public void setCalificacion(String calificacion) {
         this.calificacion = calificacion;
     }
 

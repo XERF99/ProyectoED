@@ -7,7 +7,7 @@ package proyectoed1b;
 
 /**
  *
- * @author FRANCISCO
+ * @author barragán - rodríguez - guevara
  */
 public class ProyectoED1B {
 
