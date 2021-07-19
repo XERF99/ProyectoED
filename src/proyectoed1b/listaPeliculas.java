@@ -11,20 +11,22 @@ package proyectoed1b;
  */
 public class listaPeliculas {
 
-    Peliculas Pelicula = new Peliculas();
-    
-    String[][] Peliculas = {
-        {"1", "Hachiko", "2009", "5", "Drama", "Disponible"},
-        {"2", "The Avengers", "2012", "4", "Acción", "Disponible"},
-        {"3", "Black Widow", "2021", "4", "Acción", "Disponible"},
-        {"4", "Que paso ayer", "2009", "4", "Comedia", "Disponible"},
-        {"5", "La Purga: Infinita", "2021", "3", "Terror", "Disponible"},
-        {"6", "Plup Fiction", "1994", "5", "Comedia", "Disponible"},
-        {"7", "Sin City", "2005", "3", "Acción", "Disponible"},
-        {"8", "El Exorcista", "1973", "3", "Terror", "Disponible"},
-        {"9", "Batman: El Caballero de la noche", "2008", "4", "Acción", "Disponible"},
-        {"10", "Interestelar", "2014", "3", "Ciencia Ficción", "Disponible"}};
+    Peliculas Pelicula[] = new Peliculas[10];
 
+    public void matrizPeliculas(Peliculas pelicula) {
+
+        this.Pelicula[0] = new Peliculas(1, "Hachiko", 2009, 5, "Drama", "Disponible");
+        this.Pelicula[1] = new Peliculas(2, "The Avengers", 2012, 4, "Acción", "Disponible");
+        this.Pelicula[2] = new Peliculas(3, "Black Widow", 2021, 4, "Acción", "Disponible");
+        this.Pelicula[3] = new Peliculas(4, "Que paso ayer", 2009, 4, "Comedia", "Disponible");
+        this.Pelicula[4] = new Peliculas(5, "La Purga: Infinita", 2021, 3, "Terror", "Disponible");
+        this.Pelicula[5] = new Peliculas(6, "Plup Fiction", 1994, 5, "Comedia", "Disponible");
+        this.Pelicula[6] = new Peliculas(7, "Sin City", 2005, 3, "Acción", "Disponible");
+        this.Pelicula[7] = new Peliculas(8, "El Exorcista", 1973, 3, "Terror", "Disponible");
+        this.Pelicula[8] = new Peliculas(9, "Batman: El Caballero de la noche", 2008, 4, "Acción", "Disponible");
+        this.Pelicula[9] = new Peliculas(10, "Interestelar", 2014, 3, "Ciencia Ficción", "Disponible");
+    }
+    
     private NodoPelicula cabecera; //este es el nodo cabecera
 
     public listaPeliculas() {
@@ -62,9 +64,9 @@ public class listaPeliculas {
         }
         System.out.println();
     }
-    
+
     public void eliminar(Peliculas id) {
-        
+
         NodoPelicula actual = this.cabecera;
         boolean encontrado = false;
         while (actual != null && !encontrado) {
@@ -81,7 +83,7 @@ public class listaPeliculas {
                 } else if (actual.getNodoProximo() != null) {
                     actual.getNodoAnterior().setNodoProximo(actual.getNodoProximo());
                     actual.getNodoProximo().setNodoAnterior(actual.getNodoAnterior());
-                }else{
+                } else {
                     actual.getNodoAnterior().setNodoProximo(null);
                     actual = null;
                 }

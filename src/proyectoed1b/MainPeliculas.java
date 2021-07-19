@@ -16,6 +16,7 @@ public class MainPeliculas extends javax.swing.JFrame {
      */
     public MainPeliculas() {
         initComponents(); 
+        Peliculas P[] = new Peliculas[10];
     }
 
     /**
