@@ -16,8 +16,10 @@ public class ProyectoED1B {
      */
     public static void main(String[] args) {
         // TODO code application logic here
-       listaPeliculas l = new listaPeliculas();
+       /*listaPeliculas l = new listaPeliculas();
        l.InicializarLista();
+       l.llenarMatriz();
+       l.imprimirLista();*/
     }
     
 }

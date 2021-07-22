@@ -12,15 +12,19 @@ package proyectoed1b;
  */
 public class listaPeliculas {
 
-    private NodoPelicula inicio;
+    private NodoPelicula inicio; // este es el nodo inicial
     private NodoPelicula fin;
-    private NodoPelicula cabecera; //este es el nodo cabecera
+   // private NodoPelicula cabecera; //este es el nodo cabecera
 
-    public listaPeliculas(NodoPelicula inicio, NodoPelicula fin, NodoPelicula cabecera) {
+    public listaPeliculas(NodoPelicula inicio, NodoPelicula fin) {
         this.inicio = inicio;
         this.fin = fin;
-        this.cabecera = cabecera;
     }
+
+    public listaPeliculas() {
+    }
+    
+    
 
     Peliculas Pelicula[] = new Peliculas[10];
 
@@ -33,7 +37,7 @@ public class listaPeliculas {
         this.Peli[0][2] = "2009";
         this.Peli[0][3] = "5";
         this.Peli[0][4] = "Drama";
-        this.Peli[0][3] = "Disponible";
+        this.Peli[0][5] = "Disponible";
 
         this.Peli[1][0] = "2";
         this.Peli[1][1] = "The Avengers";
@@ -108,10 +112,9 @@ public class listaPeliculas {
         for (int i = 0; i < 25; i++) {
             for (int j = 0; j < 6; j++) {
                 if (j == 0) {
-                    P1.setId((Peli[i][j]));
+                    P1.setId(Integer.parseInt(Peli[i][j]));
                 } else if (j == 1) {
                     P1.setNombre(Peli[i][j]);
-
                 } else if (j == 2) {
                     P1.setAño(Integer.parseInt(Peli[i][j]));
                 } else if (j == 3) {
@@ -124,22 +127,10 @@ public class listaPeliculas {
             }
             if (i == 0) {
                 n1 = new NodoPelicula(P1);
-                this.cabecera = n1;
+                this.inicio = n1;
             }
             n1 = new NodoPelicula(P1);
         }
-    }
-
-    public listaPeliculas() {
-        this.cabecera = null;
-    }
-
-    public void setCabecera(NodoPelicula primero) {
-        this.cabecera = primero;
-    }
-
-    public NodoPelicula getCabecera() {
-        return cabecera;
     }
 
     /* public listaPeliculas insertarCabeza(int entrada) {
@@ -152,25 +143,75 @@ public class listaPeliculas {
         cabecera = nuevo;
         return this;
     }*/
-    public void insertarFinal() {
-
+    
+     public boolean estaVacia() {
+        if (inicio == null) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+    
+    //  Metodo para insertar al final de la lista Peliculas
+    public void insertarFinal(Peliculas pelicula) {
+        NodoPelicula aux;
+        if (!estaVacia()) {
+            aux = fin.getSiguiente();
+            aux = new NodoPelicula(pelicula);
+        }else{
+            inicio = fin = new NodoPelicula();
+        }
     }
 
-    public void visualizasLista() {
+    /*public void visualizasLista() {
         NodoPelicula n;
         int k = 0;
         n = cabecera;
         while (n != null) {
             System.out.println(n.getDato() + "");
-            n = n.getNodoProximo();
+            n = n.getSiguiente();
             k++;
             System.out.print((k % 15 != 0 ? "" : "\n"));
         }
         System.out.println();
+    }*/
+
+    //Metodo para eliminar un nodo en especifico
+    public void eliminarNodoEspecifico(Peliculas elementoEliminar) {
+        if (!estaVacia()) {
+            if (inicio == fin && elementoEliminar == inicio.getDato()) {
+                inicio = fin = null;
+            } else if (elementoEliminar == inicio.getDato()) {
+                inicio = inicio.getSiguiente();
+            } else {
+                NodoPelicula anterior, temporal;
+                anterior = inicio;
+                temporal = inicio.getSiguiente();
+                while (temporal != null && temporal.getDato() != elementoEliminar) {
+                    anterior = anterior.getSiguiente();
+                    temporal = temporal.getSiguiente();
+                }
+                if (temporal != null) {
+                    anterior.setSiguiente(temporal.getSiguiente());
+                    if (temporal == fin) {
+                        fin = anterior;
+                    }
+                }
+            }
+        } else {
+            System.out.println("El elemento ingresado no se encuentra en la lista");
+        }
     }
 
-    
-
+    // Mostrar los datos
+    public void imprimirLista() {
+        NodoPelicula recorrer = inicio;//Apunta a inicio
+        System.out.println("");
+        while (recorrer != null) {
+            System.out.print("El elemento: " + recorrer.getDato());
+            recorrer = recorrer.getSiguiente();
+        }
+    }
 }
 
  /*public void matrizPeliculas(Peliculas pelicula) {

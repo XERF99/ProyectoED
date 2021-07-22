@@ -12,7 +12,7 @@ package proyectoed1b;
 public class NodoPelicula {
 
     private Peliculas dato;
-    private NodoPelicula nodoProximo;
+    private NodoPelicula siguiente;
    
     
     public NodoPelicula() {
@@ -20,6 +20,7 @@ public class NodoPelicula {
 
     public NodoPelicula(Peliculas dato) {
         this.dato = dato;
+        this.siguiente = null;
     }
 
     public Peliculas getDato() {
@@ -30,12 +31,12 @@ public class NodoPelicula {
         this.dato = dato;
     }
 
-    public NodoPelicula getNodoProximo() {
-        return nodoProximo;
+    public NodoPelicula getSiguiente() {
+        return siguiente;
     }
 
-    public void setNodoProximo(NodoPelicula nodoProximo) {
-        this.nodoProximo = nodoProximo;
+    public void setSiguiente(NodoPelicula nodoProximo) {
+        this.siguiente = nodoProximo;
     }
 
 }
