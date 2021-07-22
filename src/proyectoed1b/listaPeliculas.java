@@ -5,29 +5,130 @@
  */
 package proyectoed1b;
 
+
 /**
  *
  * @author barragán - rodríguez - guevara
  */
 public class listaPeliculas {
 
+    private NodoPelicula inicio;
+    private NodoPelicula fin;
+    private NodoPelicula cabecera; //este es el nodo cabecera
+
+    public listaPeliculas(NodoPelicula inicio, NodoPelicula fin, NodoPelicula cabecera) {
+        this.inicio = inicio;
+        this.fin = fin;
+        this.cabecera = cabecera;
+    }
+
     Peliculas Pelicula[] = new Peliculas[10];
 
-    public void matrizPeliculas(Peliculas pelicula) {
+    String Peli[][] = new String[25][6];
 
-        this.Pelicula[0] = new Peliculas(1, "Hachiko", 2009, 5, "Drama", "Disponible");
-        this.Pelicula[1] = new Peliculas(2, "The Avengers", 2012, 4, "Acción", "Disponible");
-        this.Pelicula[2] = new Peliculas(3, "Black Widow", 2021, 4, "Acción", "Disponible");
-        this.Pelicula[3] = new Peliculas(4, "Que paso ayer", 2009, 4, "Comedia", "Disponible");
-        this.Pelicula[4] = new Peliculas(5, "La Purga: Infinita", 2021, 3, "Terror", "Disponible");
-        this.Pelicula[5] = new Peliculas(6, "Plup Fiction", 1994, 5, "Comedia", "Disponible");
-        this.Pelicula[6] = new Peliculas(7, "Sin City", 2005, 3, "Acción", "Disponible");
-        this.Pelicula[7] = new Peliculas(8, "El Exorcista", 1973, 3, "Terror", "Disponible");
-        this.Pelicula[8] = new Peliculas(9, "Batman: El Caballero de la noche", 2008, 4, "Acción", "Disponible");
-        this.Pelicula[9] = new Peliculas(10, "Interestelar", 2014, 3, "Ciencia Ficción", "Disponible");
+    public void llenarMatriz() {
+
+        this.Peli[0][0] = "1";
+        this.Peli[0][1] = "Hachico";
+        this.Peli[0][2] = "2009";
+        this.Peli[0][3] = "5";
+        this.Peli[0][4] = "Drama";
+        this.Peli[0][3] = "Disponible";
+
+        this.Peli[1][0] = "2";
+        this.Peli[1][1] = "The Avengers";
+        this.Peli[1][2] = "2012";
+        this.Peli[1][3] = "4";
+        this.Peli[1][4] = "Acción";
+        this.Peli[1][5] = "Disponible";
+        
+        this.Peli[2][0] = "3";
+        this.Peli[2][1] = "Back Widow";
+        this.Peli[2][2] = "2021";
+        this.Peli[2][3] = "4";
+        this.Peli[2][4] = "Acción";
+        this.Peli[2][5] = "Disponible";
+        
+        this.Peli[3][0] = "4";
+        this.Peli[3][1] = "Que paso ayer";
+        this.Peli[3][2] = "2009";
+        this.Peli[3][3] = "4";
+        this.Peli[3][4] = "Comedia";
+        this.Peli[3][5] = "Disponible";
+        
+        this.Peli[4][0] = "5";
+        this.Peli[4][1] = "La purga";
+        this.Peli[4][2] = "2021";
+        this.Peli[4][3] = "3";
+        this.Peli[4][4] = "Terror";
+        this.Peli[4][5] = "Disponible";
+        
+        this.Peli[5][0] = "5";
+        this.Peli[5][1] = "La purga";
+        this.Peli[5][2] = "2021";
+        this.Peli[5][3] = "3";
+        this.Peli[5][4] = "Terror";
+        this.Peli[5][5] = "Disponible";
+            
+        this.Peli[6][0] = "7";
+        this.Peli[6][1] = "Sin City";
+        this.Peli[6][2] = "2005";
+        this.Peli[6][3] = "4";
+        this.Peli[6][4] = "Acción";
+        this.Peli[6][5] = "Disponible";
+        
+        this.Peli[7][0] = "8";
+        this.Peli[7][1] = "El Exorcista";
+        this.Peli[7][2] = "1973";
+        this.Peli[7][3] = "3";
+        this.Peli[7][4] = "Terror";
+        this.Peli[7][5] = "Disponible";
+        
+        this.Peli[8][0] = "9";
+        this.Peli[8][1] = "Batman: El Caballero de la noche";
+        this.Peli[8][2] = "2008";
+        this.Peli[8][3] = "4";
+        this.Peli[8][4] = "Acción";
+        this.Peli[8][5] = "Disponible";
+        
+        this.Peli[9][0] = "9";
+        this.Peli[9][1] = "Interestelar";
+        this.Peli[9][2] = "2014";
+        this.Peli[9][3] = "3";
+        this.Peli[9][4] = "Ciencia Ficción";
+        this.Peli[9][5] = "Disponible";        
     }
     
-    private NodoPelicula cabecera; //este es el nodo cabecera
+    public void InicializarLista() {
+
+        Peliculas P1 = new Peliculas();
+
+        NodoPelicula n1 = new NodoPelicula();
+
+        for (int i = 0; i < 25; i++) {
+            for (int j = 0; j < 6; j++) {
+                if (j == 0) {
+                    P1.setId((Peli[i][j]));
+                } else if (j == 1) {
+                    P1.setNombre(Peli[i][j]);
+
+                } else if (j == 2) {
+                    P1.setAño(Integer.parseInt(Peli[i][j]));
+                } else if (j == 3) {
+                    P1.setCalificacion(Integer.parseInt(Peli[i][j]));
+                } else if (j == 4) {
+                    P1.setGenero(Peli[i][j]);
+                } else {
+                    P1.setEstado(Peli[i][j]);
+                }
+            }
+            if (i == 0) {
+                n1 = new NodoPelicula(P1);
+                this.cabecera = n1;
+            }
+            n1 = new NodoPelicula(P1);
+        }
+    }
 
     public listaPeliculas() {
         this.cabecera = null;
@@ -41,7 +142,7 @@ public class listaPeliculas {
         return cabecera;
     }
 
-    public listaPeliculas insertarCabeza(int entrada) {
+    /* public listaPeliculas insertarCabeza(int entrada) {
         NodoPelicula nuevo;
         nuevo = new NodoPelicula();
         nuevo.setNodoProximo(cabecera);
@@ -50,6 +151,9 @@ public class listaPeliculas {
         }
         cabecera = nuevo;
         return this;
+    }*/
+    public void insertarFinal() {
+
     }
 
     public void visualizasLista() {
@@ -65,29 +169,21 @@ public class listaPeliculas {
         System.out.println();
     }
 
-    public void eliminar(Peliculas id) {
+    
 
-        NodoPelicula actual = this.cabecera;
-        boolean encontrado = false;
-        while (actual != null && !encontrado) {
-            encontrado = (actual.getDato().equals(id));
-            if (encontrado) {
-                actual.getNodoProximo();
-            }
-        }
-        if (actual != null) {
-            if (actual == this.cabecera) {
-                this.cabecera = actual.getNodoProximo();
-                if (actual.getNodoProximo() != null) {
-                    actual.getNodoProximo().setNodoAnterior(null);
-                } else if (actual.getNodoProximo() != null) {
-                    actual.getNodoAnterior().setNodoProximo(actual.getNodoProximo());
-                    actual.getNodoProximo().setNodoAnterior(actual.getNodoAnterior());
-                } else {
-                    actual.getNodoAnterior().setNodoProximo(null);
-                    actual = null;
-                }
-            }
-        }
-    }
 }
+
+ /*public void matrizPeliculas(Peliculas pelicula) {
+
+        this.Pelicula[0] = new Peliculas(1, "Hachiko", 2009, 5, "Drama", "Disponible");
+        this.Pelicula[1] = new Peliculas(2, "The Avengers", 2012, 4, "Acción", "Disponible");
+        this.Pelicula[2] = new Peliculas(3, "Black Widow", 2021, 4, "Acción", "Disponible");
+        this.Pelicula[3] = new Peliculas(4, "Que paso ayer", 2009, 4, "Comedia", "Disponible");
+        this.Pelicula[4] = new Peliculas(5, "La Purga: Infinita", 2021, 3, "Terror", "Disponible");
+        this.Pelicula[5] = new Peliculas(6, "Plup Fiction", 1994, 5, "Comedia", "Disponible");
+        this.Pelicula[6] = new Peliculas(7, "Sin City", 2005, 3, "Acción", "Disponible");
+        this.Pelicula[7] = new Peliculas(8, "El Exorcista", 1973, 3, "Terror", "Disponible");
+        this.Pelicula[8] = new Peliculas(9, "Batman: El Caballero de la noche", 2008, 4, "Acción", "Disponible");
+        this.Pelicula[9] = new Peliculas(10, "Interestelar", 2014, 3, "Ciencia Ficción", "Disponible");
+
+    }*/

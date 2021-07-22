@@ -16,7 +16,7 @@ public class MainPeliculas extends javax.swing.JFrame {
      */
     public MainPeliculas() {
         initComponents(); 
-        Peliculas P[] = new Peliculas[10];
+        Peliculas P1[] = new Peliculas[10];
     }
 
     /**
@@ -330,18 +330,15 @@ public class MainPeliculas extends javax.swing.JFrame {
                         .addGap(30, 30, 30)
                         .addComponent(btnNombrePelicula, javax.swing.GroupLayout.PREFERRED_SIZE, 77, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel4Layout.createSequentialGroup()
-                        .addGap(18, 18, 18)
-                        .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jPanel4Layout.createSequentialGroup()
-                                .addComponent(jScrollPane6, javax.swing.GroupLayout.DEFAULT_SIZE, 262, Short.MAX_VALUE)
-                                .addContainerGap())
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel4Layout.createSequentialGroup()
-                                .addGap(0, 85, Short.MAX_VALUE)
-                                .addComponent(jLabel2)
-                                .addGap(86, 86, 86))))
+                    .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(jPanel4Layout.createSequentialGroup()
+                            .addComponent(jScrollPane6, javax.swing.GroupLayout.DEFAULT_SIZE, 262, Short.MAX_VALUE)
+                            .addContainerGap())
+                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel4Layout.createSequentialGroup()
+                            .addGap(0, 85, Short.MAX_VALUE)
+                            .addComponent(jLabel2)
+                            .addGap(86, 86, 86)))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel4Layout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(btnAnadir, javax.swing.GroupLayout.PREFERRED_SIZE, 77, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
                         .addComponent(btnFinalizarAlquiler)
@@ -386,7 +383,7 @@ public class MainPeliculas extends javax.swing.JFrame {
 
         lblTitulo2.setText("Ingrese la IP de la película a eliminar");
 
-        lblIPEliminar.setText("IP Película:");
+        lblIPEliminar.setText("ID Película:");
 
         btnEliminar.setText("Eliminar");
 
@@ -411,7 +408,7 @@ public class MainPeliculas extends javax.swing.JFrame {
                 {null, null, null, null, null, null}
             },
             new String [] {
-                "IP Película", "Nombre", "Año", "Calificación", "Género", "Estado"
+                "ID Película", "Nombre", "Año", "Calificación", "Género", "Estado"
             }
         ));
         jScrollPane8.setViewportView(jTable4);
@@ -431,7 +428,7 @@ public class MainPeliculas extends javax.swing.JFrame {
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
                         .addComponent(btnEliminar, javax.swing.GroupLayout.PREFERRED_SIZE, 77, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(53, 53, 53)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 27, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 26, Short.MAX_VALUE)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
                         .addComponent(jScrollPane5, javax.swing.GroupLayout.PREFERRED_SIZE, 343, javax.swing.GroupLayout.PREFERRED_SIZE)
