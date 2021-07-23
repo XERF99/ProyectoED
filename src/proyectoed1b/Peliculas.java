@@ -75,5 +75,16 @@ public class Peliculas {
         this.estado = estado;
     }
 
+    @Override
+    public String toString() {
+        return "\nPeliculas" + "\n"+
+                "ID: " + id + "\n" + 
+                "Nombre: " + nombre +"\n" + 
+                "Año: " + año + "\n" +
+                "Calificación: " + calificacion +"\n" + 
+                "Género: " + genero + "\n" +
+                "Estado: " + estado +"\n";
+    }
+
     
 }

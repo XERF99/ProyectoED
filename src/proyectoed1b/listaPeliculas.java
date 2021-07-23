@@ -14,6 +14,8 @@ public class listaPeliculas {
 
     private NodoPelicula inicio; // este es el nodo inicial
     private NodoPelicula fin;
+    int size = 1;
+
    // private NodoPelicula cabecera; //este es el nodo cabecera
 
     public listaPeliculas(NodoPelicula inicio, NodoPelicula fin) {
@@ -23,12 +25,8 @@ public class listaPeliculas {
 
     public listaPeliculas() {
     }
-    
-    
 
-    Peliculas Pelicula[] = new Peliculas[10];
-
-    String Peli[][] = new String[25][6];
+    String Peli[][] = new String[10][6];
 
     public void llenarMatriz() {
 
@@ -95,7 +93,7 @@ public class listaPeliculas {
         this.Peli[8][4] = "Acción";
         this.Peli[8][5] = "Disponible";
         
-        this.Peli[9][0] = "9";
+        this.Peli[9][0] = "10";
         this.Peli[9][1] = "Interestelar";
         this.Peli[9][2] = "2014";
         this.Peli[9][3] = "3";
@@ -109,7 +107,10 @@ public class listaPeliculas {
 
         NodoPelicula n1 = new NodoPelicula();
 
-        for (int i = 0; i < 25; i++) {
+        for (int i = 0; i < 10; i++) {
+            if (Peli[i][0] == null) {   //termino de iterar las filas con datos 
+                break;
+            }
             for (int j = 0; j < 6; j++) {
                 if (j == 0) {
                     P1.setId(Integer.parseInt(Peli[i][j]));
@@ -124,14 +125,20 @@ public class listaPeliculas {
                 } else {
                     P1.setEstado(Peli[i][j]);
                 }
-            }
-            if (i == 0) {
+                if (i == 0) {
+                    n1 = new NodoPelicula(P1);
+                    this.inicio = n1;
+                }
                 n1 = new NodoPelicula(P1);
-                this.inicio = n1;
+                inicio.setSiguiente(n1);
+                inicio = inicio.getSiguiente();
             }
-            n1 = new NodoPelicula(P1);
         }
+
     }
+    
+    
+
 
     /* public listaPeliculas insertarCabeza(int entrada) {
         NodoPelicula nuevo;
@@ -143,25 +150,27 @@ public class listaPeliculas {
         cabecera = nuevo;
         return this;
     }*/
-    
-     public boolean estaVacia() {
+    public boolean estaVacia() {
         if (inicio == null) {
             return true;
         } else {
             return false;
         }
     }
-    
+
     //  Metodo para insertar al final de la lista Peliculas
     public void insertarFinal(Peliculas pelicula) {
         NodoPelicula aux;
-        if (!estaVacia()) {
-            aux = fin.getSiguiente();
+        if (estaVacia()) {
+            inicio = new NodoPelicula(pelicula);
+            size++;
+        } else {
             aux = new NodoPelicula(pelicula);
-        }else{
-            inicio = fin = new NodoPelicula();
+            inicio.setSiguiente(aux);
+            size++;
         }
     }
+
 
     /*public void visualizasLista() {
         NodoPelicula n;
@@ -197,6 +206,7 @@ public class listaPeliculas {
                         fin = anterior;
                     }
                 }
+               size--;
             }
         } else {
             System.out.println("El elemento ingresado no se encuentra en la lista");
@@ -204,14 +214,17 @@ public class listaPeliculas {
     }
 
     // Mostrar los datos
-    public void imprimirLista() {
+    public String imprimirLista() {
         NodoPelicula recorrer = inicio;//Apunta a inicio
-        System.out.println("");
+        String texto ="";
         while (recorrer != null) {
-            System.out.print("El elemento: " + recorrer.getDato());
+            texto+=recorrer.getDato().toString();
             recorrer = recorrer.getSiguiente();
         }
+            //texto+=recorrer.getDato().toString();
+            return texto;
     }
+    
 }
 
  /*public void matrizPeliculas(Peliculas pelicula) {
@@ -228,3 +241,29 @@ public class listaPeliculas {
         this.Pelicula[9] = new Peliculas(10, "Interestelar", 2014, 3, "Ciencia Ficción", "Disponible");
 
     }*/
+
+
+      /*  for (int i = 0; i < 10; i++) {
+            for (int j = 0; j < 6; j++) {
+                switch (j) {
+                    case 0:
+                        P1.setId(Integer.parseInt(Peli[i][j]));
+                        break;
+                    case 1:
+                        P1.setNombre(Peli[i][j]);
+                        break;
+                    case 2:
+                        P1.setAño(Integer.parseInt(Peli[i][j]));
+                        break;
+                    case 3:
+                        P1.setCalificacion(Integer.parseInt(Peli[i][j]));
+                        break;
+                    case 4:
+                        P1.setGenero(Peli[i][j]);
+                        break;
+                    default:
+                        P1.setEstado(Peli[i][j]);
+                        break;
+                }
+                insertarFinal(P1);
+        }*/

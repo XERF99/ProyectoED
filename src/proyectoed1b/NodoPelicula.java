@@ -12,7 +12,7 @@ package proyectoed1b;
 public class NodoPelicula {
 
     private Peliculas dato;
-    private NodoPelicula siguiente;
+    private NodoPelicula siguiente;  // este es el enlace
    
     
     public NodoPelicula() {

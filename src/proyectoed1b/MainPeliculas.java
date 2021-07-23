@@ -5,18 +5,26 @@
  */
 package proyectoed1b;
 
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author FRANCISCO
  */
 public class MainPeliculas extends javax.swing.JFrame {
+    listaPeliculas pelicula = new listaPeliculas();
 
     /**
      * Creates new form MainPeliculas
      */
     public MainPeliculas() {
-        initComponents(); 
-        Peliculas P1[] = new Peliculas[10];
+        initComponents();
+        pelicula.llenarMatriz();
+        pelicula.InicializarLista();
+        this.txaTexto.setText(pelicula.imprimirLista());
+        this.txaTextoAlquiler.setText(pelicula.imprimirLista());
+        this.txaTextoEliminar.setText(pelicula.imprimirLista());
+
     }
 
     /**
@@ -41,18 +49,18 @@ public class MainPeliculas extends javax.swing.JFrame {
         lblCalificacion = new javax.swing.JLabel();
         lblGenero = new javax.swing.JLabel();
         txtNombreIngreso = new javax.swing.JTextField();
-        txtIP = new javax.swing.JTextField();
+        txtID = new javax.swing.JTextField();
         txtAnio = new javax.swing.JTextField();
         txtCalificacion = new javax.swing.JTextField();
         txtGenero = new javax.swing.JTextField();
         jScrollPane1 = new javax.swing.JScrollPane();
         txaCuadro1 = new javax.swing.JTextArea();
         btnRegistrar = new javax.swing.JButton();
-        jScrollPane3 = new javax.swing.JScrollPane();
-        jTable2 = new javax.swing.JTable();
         lblTitulo1 = new javax.swing.JLabel();
         btnSalir = new javax.swing.JButton();
         Ordenamiento = new javax.swing.JComboBox<>();
+        jScrollPane9 = new javax.swing.JScrollPane();
+        txaTexto = new javax.swing.JTextArea();
         jPanel4 = new javax.swing.JPanel();
         lblTitulo3 = new javax.swing.JLabel();
         lblNombreBuscar = new javax.swing.JLabel();
@@ -64,10 +72,10 @@ public class MainPeliculas extends javax.swing.JFrame {
         btnFinalizarAlquiler = new javax.swing.JButton();
         jScrollPane6 = new javax.swing.JScrollPane();
         jTextArea1 = new javax.swing.JTextArea();
-        jScrollPane7 = new javax.swing.JScrollPane();
-        jTable3 = new javax.swing.JTable();
         jLabel2 = new javax.swing.JLabel();
         btnNombrePelicula = new javax.swing.JButton();
+        jScrollPane10 = new javax.swing.JScrollPane();
+        txaTextoAlquiler = new javax.swing.JTextArea();
         jPanel2 = new javax.swing.JPanel();
         lblTitulo2 = new javax.swing.JLabel();
         lblIPEliminar = new javax.swing.JLabel();
@@ -76,8 +84,8 @@ public class MainPeliculas extends javax.swing.JFrame {
         jScrollPane5 = new javax.swing.JScrollPane();
         txaCuadro2 = new javax.swing.JTextArea();
         jLabel3 = new javax.swing.JLabel();
-        jScrollPane8 = new javax.swing.JScrollPane();
-        jTable4 = new javax.swing.JTable();
+        jScrollPane11 = new javax.swing.JScrollPane();
+        txaTextoEliminar = new javax.swing.JTextArea();
 
         jMenu1.setText("jMenu1");
 
@@ -106,7 +114,7 @@ public class MainPeliculas extends javax.swing.JFrame {
 
         lblNombre.setText("Nombre:");
 
-        lblIP.setText("IP Película:");
+        lblIP.setText("ID Película:");
 
         lblAnio.setText("Año:");
 
@@ -120,9 +128,9 @@ public class MainPeliculas extends javax.swing.JFrame {
             }
         });
 
-        txtIP.addActionListener(new java.awt.event.ActionListener() {
+        txtID.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtIPActionPerformed(evt);
+                txtIDActionPerformed(evt);
             }
         });
 
@@ -156,71 +164,57 @@ public class MainPeliculas extends javax.swing.JFrame {
             }
         });
 
-        jTable2.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null}
-            },
-            new String [] {
-                "IP Película", "Nombre", "Año", "Calificación", "Género", "Estado"
-            }
-        ));
-        jScrollPane3.setViewportView(jTable2);
-
         lblTitulo1.setText("Ingreso de una nueva película");
 
         btnSalir.setText("Salir");
 
         Ordenamiento.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Ordenamiento", "Año", "Calificación", "Genero", "Nombre" }));
 
+        txaTexto.setColumns(20);
+        txaTexto.setRows(5);
+        jScrollPane9.setViewportView(txaTexto);
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addContainerGap()
-                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(lblGenero)
-                                    .addComponent(lblCalificacion)
-                                    .addComponent(lblAnio)
-                                    .addComponent(lblNombre)
-                                    .addComponent(lblIP))
-                                .addGap(39, 39, 39)
-                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(txtGenero, javax.swing.GroupLayout.PREFERRED_SIZE, 148, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(txtCalificacion, javax.swing.GroupLayout.PREFERRED_SIZE, 148, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(txtIP, javax.swing.GroupLayout.PREFERRED_SIZE, 148, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(txtNombreIngreso, javax.swing.GroupLayout.PREFERRED_SIZE, 148, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(txtAnio, javax.swing.GroupLayout.PREFERRED_SIZE, 148, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addGap(68, 68, 68)
-                                .addComponent(lblTitulo1))
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                                .addContainerGap()
-                                .addComponent(Ordenamiento, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(btnRegistrar, javax.swing.GroupLayout.PREFERRED_SIZE, 77, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(31, 31, 31)))
-                        .addGap(18, 18, 18)
-                        .addComponent(jScrollPane1))
-                    .addComponent(jScrollPane3, javax.swing.GroupLayout.DEFAULT_SIZE, 611, Short.MAX_VALUE))
+                        .addContainerGap()
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(lblGenero)
+                            .addComponent(lblCalificacion)
+                            .addComponent(lblAnio)
+                            .addComponent(lblNombre)
+                            .addComponent(lblIP))
+                        .addGap(39, 39, 39)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(txtGenero, javax.swing.GroupLayout.PREFERRED_SIZE, 148, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(txtCalificacion, javax.swing.GroupLayout.PREFERRED_SIZE, 148, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(txtID, javax.swing.GroupLayout.PREFERRED_SIZE, 148, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(txtNombreIngreso, javax.swing.GroupLayout.PREFERRED_SIZE, 148, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(txtAnio, javax.swing.GroupLayout.PREFERRED_SIZE, 148, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(68, 68, 68)
+                        .addComponent(lblTitulo1))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(Ordenamiento, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(btnRegistrar, javax.swing.GroupLayout.PREFERRED_SIZE, 77, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(31, 31, 31)))
+                .addGap(18, 18, 18)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 337, Short.MAX_VALUE)
                 .addContainerGap())
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                 .addGap(0, 0, Short.MAX_VALUE)
                 .addComponent(btnSalir, javax.swing.GroupLayout.PREFERRED_SIZE, 77, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(14, 14, 14))
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jScrollPane9)
+                .addContainerGap())
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -231,7 +225,7 @@ public class MainPeliculas extends javax.swing.JFrame {
                         .addComponent(lblTitulo1)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(txtIP, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(txtID, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(lblIP))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -257,10 +251,10 @@ public class MainPeliculas extends javax.swing.JFrame {
                         .addGap(11, 11, 11)
                         .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 218, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 181, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(30, 30, 30)
+                .addComponent(jScrollPane9, javax.swing.GroupLayout.PREFERRED_SIZE, 211, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(btnSalir)
-                .addContainerGap(41, Short.MAX_VALUE))
+                .addContainerGap(35, Short.MAX_VALUE))
         );
 
         jTabbedPane1.addTab("Insertar", jPanel1);
@@ -286,28 +280,13 @@ public class MainPeliculas extends javax.swing.JFrame {
         jTextArea1.setRows(5);
         jScrollPane6.setViewportView(jTextArea1);
 
-        jTable3.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null}
-            },
-            new String [] {
-                "IP Película", "Nombre", "Año", "Calificación", "Género", "Estado"
-            }
-        ));
-        jScrollPane7.setViewportView(jTable3);
-
         jLabel2.setText("Carro de Compra");
 
         btnNombrePelicula.setText("Buscar");
+
+        txaTextoAlquiler.setColumns(20);
+        txaTextoAlquiler.setRows(5);
+        jScrollPane10.setViewportView(txaTextoAlquiler);
 
         javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
         jPanel4.setLayout(jPanel4Layout);
@@ -332,10 +311,10 @@ public class MainPeliculas extends javax.swing.JFrame {
                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                         .addGroup(jPanel4Layout.createSequentialGroup()
-                            .addComponent(jScrollPane6, javax.swing.GroupLayout.DEFAULT_SIZE, 262, Short.MAX_VALUE)
+                            .addComponent(jScrollPane6, javax.swing.GroupLayout.DEFAULT_SIZE, 314, Short.MAX_VALUE)
                             .addContainerGap())
                         .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel4Layout.createSequentialGroup()
-                            .addGap(0, 85, Short.MAX_VALUE)
+                            .addGap(0, 137, Short.MAX_VALUE)
                             .addComponent(jLabel2)
                             .addGap(86, 86, 86)))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel4Layout.createSequentialGroup()
@@ -343,9 +322,9 @@ public class MainPeliculas extends javax.swing.JFrame {
                         .addGap(18, 18, 18)
                         .addComponent(btnFinalizarAlquiler)
                         .addGap(28, 28, 28))))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel4Layout.createSequentialGroup()
+            .addGroup(jPanel4Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jScrollPane7)
+                .addComponent(jScrollPane10)
                 .addContainerGap())
         );
         jPanel4Layout.setVerticalGroup(
@@ -372,9 +351,9 @@ public class MainPeliculas extends javax.swing.JFrame {
                         .addComponent(jLabel1)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(jScrollPane4)))
-                .addGap(18, 18, 18)
-                .addComponent(jScrollPane7, javax.swing.GroupLayout.PREFERRED_SIZE, 181, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(38, 38, 38))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jScrollPane10, javax.swing.GroupLayout.PREFERRED_SIZE, 203, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(28, 28, 28))
         );
 
         jTabbedPane1.addTab("Alquiler", jPanel4);
@@ -394,24 +373,9 @@ public class MainPeliculas extends javax.swing.JFrame {
 
         jLabel3.setText("Datos");
 
-        jTable4.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null}
-            },
-            new String [] {
-                "ID Película", "Nombre", "Año", "Calificación", "Género", "Estado"
-            }
-        ));
-        jScrollPane8.setViewportView(jTable4);
+        txaTextoEliminar.setColumns(20);
+        txaTextoEliminar.setRows(5);
+        jScrollPane11.setViewportView(txaTextoEliminar);
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
@@ -421,22 +385,26 @@ public class MainPeliculas extends javax.swing.JFrame {
                 .addContainerGap()
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addComponent(lblIPEliminar)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(txtIPEliminar, javax.swing.GroupLayout.PREFERRED_SIZE, 161, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(lblTitulo2)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
-                        .addComponent(btnEliminar, javax.swing.GroupLayout.PREFERRED_SIZE, 77, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(53, 53, 53)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 26, Short.MAX_VALUE)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
-                        .addComponent(jScrollPane5, javax.swing.GroupLayout.PREFERRED_SIZE, 343, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jScrollPane11)
                         .addContainerGap())
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
-                        .addComponent(jLabel3)
-                        .addGap(148, 148, 148))))
-            .addComponent(jScrollPane8)
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanel2Layout.createSequentialGroup()
+                                .addComponent(lblIPEliminar)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(txtIPEliminar, javax.swing.GroupLayout.PREFERRED_SIZE, 161, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(lblTitulo2)
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
+                                .addComponent(btnEliminar, javax.swing.GroupLayout.PREFERRED_SIZE, 77, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(53, 53, 53)))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 60, Short.MAX_VALUE)
+                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
+                                .addComponent(jScrollPane5, javax.swing.GroupLayout.PREFERRED_SIZE, 343, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addContainerGap())
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
+                                .addComponent(jLabel3)
+                                .addGap(148, 148, 148))))))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -455,9 +423,9 @@ public class MainPeliculas extends javax.swing.JFrame {
                         .addComponent(btnEliminar)
                         .addGap(0, 0, Short.MAX_VALUE))
                     .addComponent(jScrollPane5, javax.swing.GroupLayout.DEFAULT_SIZE, 251, Short.MAX_VALUE))
-                .addGap(18, 18, 18)
-                .addComponent(jScrollPane8, javax.swing.GroupLayout.PREFERRED_SIZE, 172, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(40, 40, 40))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jScrollPane11, javax.swing.GroupLayout.PREFERRED_SIZE, 218, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
         );
 
         jTabbedPane1.addTab("Eliminar", jPanel2);
@@ -470,9 +438,10 @@ public class MainPeliculas extends javax.swing.JFrame {
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+            .addGroup(layout.createSequentialGroup()
+                .addContainerGap()
                 .addComponent(jTabbedPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 545, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         pack();
@@ -482,9 +451,9 @@ public class MainPeliculas extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_txtNombreIngresoActionPerformed
 
-    private void txtIPActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtIPActionPerformed
+    private void txtIDActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtIDActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_txtIPActionPerformed
+    }//GEN-LAST:event_txtIDActionPerformed
 
     private void txtAnioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtAnioActionPerformed
         // TODO add your handling code here:
@@ -499,7 +468,31 @@ public class MainPeliculas extends javax.swing.JFrame {
     }//GEN-LAST:event_txtGeneroActionPerformed
 
     private void btnRegistrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegistrarActionPerformed
-        // TODO add your handling code here:
+        if (txtID.getText().equals("")
+                || txtNombreIngreso.getText().equals("")
+                || txtAnio.getText().equals("")
+                || txtCalificacion.getText().equals("")
+                || txtGenero.getText().equals("")) {
+            JOptionPane.showMessageDialog(null, "Para ingresar un nuevo contenido se debe llenar TODOS los cambos");
+            this.txtID.requestFocus();
+        }else{
+           String ID = this.txtID.getText();
+           String Nombre = this.txtNombreIngreso.getText();
+           String Anio = this.txtAnio.getText();
+           String Calificacion = this.txtCalificacion.getText();
+           String Genero = this.txtGenero.getText();
+           
+           Peliculas PeliculasInsertar = new Peliculas();
+           PeliculasInsertar.setId(Integer.parseInt(ID));
+           PeliculasInsertar.setNombre(Nombre);
+           PeliculasInsertar.setAño(Integer.parseInt(Anio));
+           PeliculasInsertar.setCalificacion(Integer.parseInt(Calificacion));
+           PeliculasInsertar.setGenero(Genero);
+           PeliculasInsertar.setEstado("Disponible");
+           pelicula.insertarFinal(PeliculasInsertar);
+           this.txaTexto.setText(pelicula.imprimirLista());
+
+        }
     }//GEN-LAST:event_btnRegistrarActionPerformed
 
     /**
@@ -554,18 +547,15 @@ public class MainPeliculas extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel4;
     private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JScrollPane jScrollPane10;
+    private javax.swing.JScrollPane jScrollPane11;
     private javax.swing.JScrollPane jScrollPane2;
-    private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JScrollPane jScrollPane4;
     private javax.swing.JScrollPane jScrollPane5;
     private javax.swing.JScrollPane jScrollPane6;
-    private javax.swing.JScrollPane jScrollPane7;
-    private javax.swing.JScrollPane jScrollPane8;
+    private javax.swing.JScrollPane jScrollPane9;
     private javax.swing.JTabbedPane jTabbedPane1;
     private javax.swing.JTable jTable1;
-    private javax.swing.JTable jTable2;
-    private javax.swing.JTable jTable3;
-    private javax.swing.JTable jTable4;
     private javax.swing.JTextArea jTextArea1;
     private javax.swing.JTextField jTextField6;
     private javax.swing.JLabel lblAnio;
@@ -581,10 +571,13 @@ public class MainPeliculas extends javax.swing.JFrame {
     private javax.swing.JTextArea txaCuadro1;
     private javax.swing.JTextArea txaCuadro2;
     private javax.swing.JTextArea txaCuadro3;
+    private javax.swing.JTextArea txaTexto;
+    private javax.swing.JTextArea txaTextoAlquiler;
+    private javax.swing.JTextArea txaTextoEliminar;
     private javax.swing.JTextField txtAnio;
     private javax.swing.JTextField txtCalificacion;
     private javax.swing.JTextField txtGenero;
-    private javax.swing.JTextField txtIP;
+    private javax.swing.JTextField txtID;
     private javax.swing.JTextField txtIPEliminar;
     private javax.swing.JTextField txtNombreBuscar;
     private javax.swing.JTextField txtNombreIngreso;
